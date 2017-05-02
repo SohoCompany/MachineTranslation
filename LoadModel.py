@@ -3,7 +3,7 @@ conditionWordCountDict = {}
 wordCount = 0
 firstFlag = '@'
 secondFlag = '#'
-modelFileName = "target2.txt"
+modelFileName = "target1.txt"
 
 def loadModel(modelFileName, wordCountDict, conditionWordCountDict):
 	modelFile = open(modelFileName)
@@ -25,7 +25,7 @@ def loadModel(modelFileName, wordCountDict, conditionWordCountDict):
 				currentDict = {currentPair[2]: int(currentPair[3])}
 				conditionWordCountDict[currentPair[1]] = currentDict
 	
-loadModel(modelFileName, wordCountDict, conditionWordCoutDict)
+loadModel(modelFileName, wordCountDict, conditionWordCountDict)
 print(wordCount)
 print(wordCountDict)
 print(conditionWordCountDict)
