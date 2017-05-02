@@ -4,31 +4,38 @@ wordCount = 0
 firstFlag = '@'
 secondFlag = '#'
 sourceFileName = "test.txt"
-targetFileName = "target2.txt"
+gram = 1
+targetFileName = "target" + str(gram) + ".txt"
 
 def processSentence(line):
 	sentence = line.split()
 	characters = sentence[0]
 	length = len(characters)
 	global wordCount
-	wordCount = (wordCount + length - 1)
+	wordCount = (wordCount + length - gram + 1)
 	for i in range(length):
-		if i < length - 1 :
-			currentWord = characters[i] + characters[i+1]
+		if i < length - gram + 1 :
+			currentWord = ""
+			for j in range(gram):
+				currentWord = currentWord + characters[i+j]
+
 			if wordCountDict.has_key(currentWord) :
 				wordCountDict[currentWord] = wordCountDict[currentWord] + 1
 			else :
 				wordCountDict[currentWord] = 1
-		if i < length - 2 :
-			currentWord = characters[i] + characters[i+1]
+		if i < length - gram :
+			currentWord = ""
+			for j in range(gram):
+				currentWord = currentWord + characters[i+j]
+
 			if conditionWordCountDict.has_key(currentWord):
 				currentDict = conditionWordCountDict[currentWord]
-				if currentDict.has_key(characters[i+2]):
-					currentDict[characters[i+2]] = currentDict[characters[i+2]] + 1
+				if currentDict.has_key(characters[i+gram]):
+					currentDict[characters[i+gram]] = currentDict[characters[i+gram]] + 1
 				else:
-					currentDict[characters[i+2]] = 1
+					currentDict[characters[i+gram]] = 1
 			else:
-				currentDict = {characters[i+2]:1}
+				currentDict = {characters[i+gram]:1}
 				conditionWordCountDict[currentWord] = currentDict
 
 
@@ -58,3 +65,4 @@ print(wordCountDict)
 print(conditionWordCountDict)
 '''
 saveModel(sourceFileName, targetFileName)
+
