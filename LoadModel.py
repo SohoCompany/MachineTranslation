@@ -5,7 +5,7 @@ firstFlag = '@'
 secondFlag = '#'
 modelFileName = "target2.txt"
 
-def loadModel(modelFileName):
+def loadModel(modelFileName, wordCountDict, conditionWordCountDict):
 	modelFile = open(modelFileName)
 	lineList = modelFile.readlines()
 	global wordCount
@@ -25,7 +25,7 @@ def loadModel(modelFileName):
 				currentDict = {currentPair[2]: int(currentPair[3])}
 				conditionWordCountDict[currentPair[1]] = currentDict
 	
-loadModel(modelFileName)
+loadModel(modelFileName, wordCountDict, conditionWordCoutDict)
 print(wordCount)
 print(wordCountDict)
 print(conditionWordCountDict)
