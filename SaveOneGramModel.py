@@ -7,9 +7,7 @@ sourceFileName = "test.txt"
 targetFileName = "target.txt"
 
 def processSentence(line):
-	sentence = line.split()
-	characters = sentence[0]
-	length = len(characters)
+	sentence = line.split() characters = sentence[0] length = len(characters)
 	global wordCount
 	wordCount += length
 	for i in range(length):
