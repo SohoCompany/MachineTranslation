@@ -59,6 +59,8 @@ def saveModel(sourceFileName, targetFileName):
 		for j in range(len(tempPairs)):
 			tempPair = tempPairs[j]
 			targetFile.write(secondFlag+firstKey+secondFlag+tempPair[0]+secondFlag+str(tempPair[1])+'\n')
+	sourceFile.close()
+	targetFile.close()
 '''
 print(wordCount)
 print(wordCountDict)
