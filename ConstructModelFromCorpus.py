@@ -3,9 +3,9 @@ conditionWordCountDict = {}
 wordCount = 0
 firstFlag = '@'
 secondFlag = '#'
-sourceFileName = "test.txt"
-gram = 1
-targetFileName = "target" + str(gram) + ".txt"
+sourceFileName = "../targetCorpus.txt"
+gram = 4
+targetFileName = "../Model/targetCorpus" + str(gram) + "Gram.txt"
 
 def processSentence(line):
 	sentence = line.split()
