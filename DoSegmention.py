@@ -40,7 +40,7 @@ def loadModel(modelFileName, wordCountDict, conditionWordCountDict):
 		if line[0] == secondFlag:
 			currentPair = line.split(secondFlag)
 			#print(currentPair[1], currentPair[2], int(currentPair[3]))
-			if conditionWordCountDict.has_key(currentPair[1]):
+			if conditionWordCountDict.has_key(currentPair[1]) == True:
 				currentDict = conditionWordCountDict[currentPair[1]]
 				currentDict[currentPair[2]] = int(currentPair[3])
 			else :
@@ -55,13 +55,13 @@ def caculateConditionEntropy(sentence):
 	currentDict = DictSequence[length - 1]
 	currentConditionDict = ConditionDictSequence[length - 1]
 	characterDict = DictSequence[0]
-	if currentDict.has_key(sentence):
+	if currentDict.has_key(sentence) == True:
 		#print("has_key:" + sentence)
 		differentCharacterCount = len(characterDict)
 		existCharacterCount = 0
 		smoothParameter = currentDict[sentence]
 
-		if currentConditionDict.has_key(sentence):
+		if currentConditionDict.has_key(sentence) == True:
 			existCharacterCount = len(currentConditionDict[sentence])
 
 		smoothParameter = currentDict[sentence] + differentCharacterCount - existCharacterCount
@@ -69,7 +69,7 @@ def caculateConditionEntropy(sentence):
 
 		conditionEntropy = 0.0
 		for key in characterDict.keys():
-			if currentConditionDict[sentence].has_key(key):
+			if currentConditionDict.has_key(sentence) == True and currentConditionDict[sentence].has_key(key) == True:
 				#print("has_key has_key:" + key)
 				#currentProbability = currentConditionDict[sentence][key]/smoothParameter
 				currentEntropy = currentConditionDict[sentence][key]*math.log(smoothParameter/currentConditionDict[sentence][key])/smoothParameter
