@@ -1,0 +1,6 @@
+1 用FileDivision.py将训练语料train.txt分解为sourceCorpus.txt和targetCorpus.txt
+2 对dev.txt做类似处理
+3 ConstructModelFromCorpus.py从sourceCorpus.txt和targetCorpus.txt生成Model路径下的1到3元的模型
+4 DoSegmention.py加载Model路径下的模型，对sourceCorpus.txt和targetCorpus.txt进行分词生成sourceCorpusSegmented.txt和targetCorpusSegmented.txt
+5 对devSourceCorpus.txt和devTargetCorpus.txt做同样处理
+6 对sourceCorpusSegmented.txt和targetCorpusSegmented.txt用word2vec做向量化，得到sourceCorpusSegmentedVec.txt和targetCorpusSegmented.txt
