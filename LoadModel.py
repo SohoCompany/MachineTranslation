@@ -24,6 +24,7 @@ def loadModel(modelFileName, wordCountDict, conditionWordCountDict):
 			else :
 				currentDict = {currentPair[2]: int(currentPair[3])}
 				conditionWordCountDict[currentPair[1]] = currentDict
+	modelFile.close()
 	
 loadModel(modelFileName, wordCountDict, conditionWordCountDict)
 print(wordCount)
