@@ -1,8 +1,10 @@
 from Levenshtein import *
 
-sourceFileName = "test1.txt"
-targetFileName = "test2.txt"
-size = 4
+sourceFileName = "/home/zhenzhuo/WorkSpace/MTTest2*128/Corpus/test.nospace.en"
+
+targetFileName = "/home/zhenzhuo/WorkSpace/MTTest2*128/Corpus/test.translated.nospace.en"
+
+size = 1000
 
 def caculateEditDistance(sourceFileName, targetFileName, size):
 	sourceFile = open(sourceFileName)
